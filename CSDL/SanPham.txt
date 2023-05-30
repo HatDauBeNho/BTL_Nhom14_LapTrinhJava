@@ -1,0 +1,2 @@
+SP01,MSI H510M-A Pro,Bo Mạch Chủ,Chiếc,2000,1600
+SP02,Kingston Fury 8GB 3200mhz,Ram PC,Chiếc,1000,600
