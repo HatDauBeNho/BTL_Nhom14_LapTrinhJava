@@ -104,10 +104,12 @@ public class QLyNCCForm extends javax.swing.JFrame {
         Jlabel6 = new javax.swing.JLabel();
         txtMaSPNCC = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        btn_xuatFileExcel = new javax.swing.JButton();
+        btn_timKiem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnClear.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnClear.setText("Xóa hết");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +186,7 @@ public class QLyNCCForm extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Địa chỉ: ");
 
-        btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAdd.setText("Thêm mới");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +196,7 @@ public class QLyNCCForm extends javax.swing.JFrame {
 
         txtdcNCC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnUpdate.setText("Sửa");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +207,7 @@ public class QLyNCCForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Số điện thoại: ");
 
-        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +235,22 @@ public class QLyNCCForm extends javax.swing.JFrame {
             }
         });
 
+        btn_xuatFileExcel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_xuatFileExcel.setText("Xuất File Excel");
+        btn_xuatFileExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xuatFileExcelActionPerformed(evt);
+            }
+        });
+
+        btn_timKiem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_timKiem.setText("Tìm");
+        btn_timKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_timKiemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -240,20 +258,24 @@ public class QLyNCCForm extends javax.swing.JFrame {
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(TableSP))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(btnAdd)
-                        .addGap(118, 118, 118)
-                        .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                        .addComponent(btnDelete)
-                        .addGap(105, 105, 105)
-                        .addComponent(btnClear)
-                        .addGap(55, 55, 55)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btn_xuatFileExcel)
+                        .addGap(23, 23, 23)))
                 .addContainerGap())
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
@@ -278,7 +300,7 @@ public class QLyNCCForm extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSLN)
+                            .addComponent(txtSLN, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                             .addComponent(txtSoDT)
                             .addComponent(txtMaSPNCC))
                         .addGap(31, 31, 31))
@@ -317,7 +339,7 @@ public class QLyNCCForm extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtTenNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSLN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(txtdcNCC)
@@ -335,7 +357,9 @@ public class QLyNCCForm extends javax.swing.JFrame {
                     .addComponent(btnUpdate)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete)
-                    .addComponent(btnClear))
+                    .addComponent(btnClear)
+                    .addComponent(btn_xuatFileExcel)
+                    .addComponent(btn_timKiem))
                 .addContainerGap())
         );
 
@@ -635,6 +659,35 @@ public class QLyNCCForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btn_xuatFileExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xuatFileExcelActionPerformed
+        // TODO add your handling code here:
+        ExportExcel.ExportExcel.exportExcel(tblNCC);
+    }//GEN-LAST:event_btn_xuatFileExcelActionPerformed
+
+    private void btn_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timKiemActionPerformed
+        // TODO add your handling code here:
+        if(txtMaNCC.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Vui lòng nhập mã nhà cung cấp");
+        }else
+        {
+            //Xóa bảng
+            int rowCount = tblNCC.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                tblModel.removeRow(i);
+            }
+            for (NCC ncc:listNCC)
+            {
+                if(txtMaNCC.getText().equals(ncc.getMaNCC()))
+                {
+                    Object[] rowData = {ncc.getMaNCC(),ncc.getTenNCC(),ncc.getDiaChi(),ncc.getSoDT(),ncc.getSoLuongNhap(),ncc.getMaSP()};
+                    tblModel.addRow(rowData);
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_timKiemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -678,6 +731,8 @@ public class QLyNCCForm extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btn_timKiem;
+    private javax.swing.JButton btn_xuatFileExcel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

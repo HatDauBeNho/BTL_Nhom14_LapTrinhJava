@@ -110,6 +110,8 @@ public class QLySPForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtGia = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        btn_timKiem = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,7 +175,7 @@ public class QLySPForm extends javax.swing.JFrame {
         });
         TableSP.setViewportView(tblSP);
 
-        btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAdd.setText("Thêm mới");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +183,7 @@ public class QLySPForm extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnUpdate.setText("Sửa");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +191,7 @@ public class QLySPForm extends javax.swing.JFrame {
             }
         });
 
-        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +199,7 @@ public class QLySPForm extends javax.swing.JFrame {
             }
         });
 
-        btnClear.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnClear.setText("Xóa hết");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +250,22 @@ public class QLySPForm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Xuất File Excel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btn_timKiem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_timKiem.setText("Tìm");
+        btn_timKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_timKiemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -255,20 +273,8 @@ public class QLySPForm extends javax.swing.JFrame {
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jSeparator3)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TableSP))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(btnAdd)
-                        .addGap(94, 94, 94)
-                        .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                        .addComponent(btnDelete)
-                        .addGap(105, 105, 105)
-                        .addComponent(btnClear)
-                        .addGap(55, 55, 55)))
+                .addContainerGap()
+                .addComponent(TableSP)
                 .addContainerGap())
             .addComponent(jSeparator1)
             .addGroup(layout.createSequentialGroup()
@@ -291,27 +297,40 @@ public class QLySPForm extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGia)
+                    .addComponent(txtGia, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                     .addComponent(txtSL)
                     .addComponent(txtDvTinh))
                 .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -330,7 +349,7 @@ public class QLySPForm extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -344,12 +363,15 @@ public class QLySPForm extends javax.swing.JFrame {
                 .addComponent(TableSP, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd)
-                    .addComponent(btnDelete)
-                    .addComponent(btnClear))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(btn_timKiem)
+                        .addComponent(btnClear)
+                        .addComponent(btnDelete)
+                        .addComponent(btnUpdate)))
                 .addContainerGap())
         );
 
@@ -640,6 +662,35 @@ public class QLySPForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ExportExcel.ExportExcel.exportExcel(tblSP);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timKiemActionPerformed
+        // TODO add your handling code here:
+        if(txtMaSP.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Vui lòng nhập mã sản phẩm");
+        }else
+        {
+            //Xóa bảng
+            int rowCount = tblSP.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                tblModel.removeRow(i);
+            }
+            for (SanPham sp:listSP)
+            {
+                if(txtMaSP.getText().equals(sp.getMaSP()))
+                {
+                    Object[] rowData = {sp.getMaSP(),sp.getTenSP(),sp.getMoTa(),sp.getDonViTinh(),sp.getSoLuong(),sp.getGia()};
+                    tblModel.addRow(rowData);
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_timKiemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -689,6 +740,8 @@ public class QLySPForm extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btn_timKiem;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

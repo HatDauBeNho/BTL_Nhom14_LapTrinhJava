@@ -1,2 +1,2 @@
-NCC01,Thủy Linh,Tòa nhà Thủy Linh - Số 33 Thái Hà - Trung Liệt - Đống Đa - Hà Nội,02435371525,2000,SP01
-NCC02,Viễn Sơn,12F Việt Tower - 1 Thái Hà - Quận Đống Đa - Hà Nội,02432115988,1000,SP02
+NCC01,Hà Nội Computer,Bách khoa,0192398716,2000,SP01
+NCC02,An Phát Computer,Cầu Diễn ,091823876,5000,SP03

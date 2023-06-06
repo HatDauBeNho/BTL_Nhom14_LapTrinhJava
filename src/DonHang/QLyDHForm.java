@@ -9,7 +9,9 @@ import NhanVien.NhanVien;
 import NhanVien.TTNVForm;
 import SanPham.SanPham;
 import java.awt.Color;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -124,6 +126,9 @@ public class QLyDHForm extends javax.swing.JFrame {
         btnTTNV = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtMaDH = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        btn_xuatFileExcel = new javax.swing.JButton();
+        btn_timKiem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,13 +218,41 @@ public class QLyDHForm extends javax.swing.JFrame {
         jLabel5.setText("Mã Đơn hàng: ");
 
         txtMaDH.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtMaDH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaDHActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Sửa");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btn_xuatFileExcel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_xuatFileExcel.setText("Xuất File Excel");
+        btn_xuatFileExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xuatFileExcelActionPerformed(evt);
+            }
+        });
+
+        btn_timKiem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_timKiem.setText("Tìm");
+        btn_timKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_timKiemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -228,19 +261,12 @@ public class QLyDHForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(115, 115, 115)
-                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(102, 102, 102)
-                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(245, 245, 245)
                                 .addComponent(btnTTNV, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(254, 254, 254)
                                 .addComponent(jLabel19)))
-                        .addGap(0, 140, Short.MAX_VALUE)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
@@ -262,6 +288,24 @@ public class QLyDHForm extends javax.swing.JFrame {
                     .addComponent(txtSLM, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btn_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_xuatFileExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +346,10 @@ public class QLyDHForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1)
+                    .addComponent(btn_xuatFileExcel)
+                    .addComponent(btn_timKiem))
                 .addGap(22, 22, 22)
                 .addComponent(btnTTNV, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -320,7 +367,8 @@ public class QLyDHForm extends javax.swing.JFrame {
     private void btnTTNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTTNVActionPerformed
         int SelectedRow = tblDH.getSelectedRow();
         boolean flag = false;
-        if (SelectedRow >= 0) {
+        if (SelectedRow >= 0) 
+        {
             String maNV = (String) tblDH.getValueAt(SelectedRow, 2);
             for (NhanVien nv : listNV) {
                 if (maNV.equalsIgnoreCase(nv.getMaNV())) {
@@ -328,7 +376,6 @@ public class QLyDHForm extends javax.swing.JFrame {
                     break;
                 }
             }
-
             if (flag) {
                 TTNVForm formTTNV = new TTNVForm(maNV);
                 formTTNV.setVisible(true);
@@ -373,14 +420,12 @@ public class QLyDHForm extends javax.swing.JFrame {
         } else {
             txtMaDH.setBackground(Color.white);
         }
-
         if (txtMaSP.getText().equals("")) {
             sb.append("Mã Sản Phẩm không được để trống \n");
             txtMaSP.setBackground(Color.gray);
         } else {
             txtMaSP.setBackground(Color.white);
         }
-
         if (txtMaNV.getText().equals("")) {
             sb.append("Mã nhân viên không được để trống \n");
             txtMaNV.setBackground(Color.gray);
@@ -497,6 +542,145 @@ public class QLyDHForm extends javax.swing.JFrame {
         btnClearActionPerformed(evt);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtMaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaDHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaDHActionPerformed
+
+    private void btn_xuatFileExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xuatFileExcelActionPerformed
+        // TODO add your handling code here:
+        ExportExcel.ExportExcel.exportExcel(tblDH);
+    }//GEN-LAST:event_btn_xuatFileExcelActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        StringBuilder sb = new StringBuilder();
+
+        if (txtMaSP.getText().equals("")) {
+            sb.append("Mã sản phẩm không được để trống \n");
+            txtMaSP.setBackground(Color.gray);
+        } else {
+            txtMaSP.setBackground(Color.white);
+        }
+
+        if (txtMaDH.getText().equals("")) {
+            sb.append("Mã đơn hàng không được để trống \n");
+            txtMaDH.setBackground(Color.gray);
+        } else {
+            txtMaDH.setBackground(Color.white);
+        }
+
+        if (txtMaNV.getText().equals("")) {
+            sb.append("Mã nhân viên không được để trống \n");
+            txtMaNV.setBackground(Color.gray);
+        } else {
+            txtMaNV.setBackground(Color.white);
+        }
+
+        if (txtSLM.getText().equals("")) {
+            sb.append("Số lượng mua không được để trống \n");
+            txtSLM.setBackground(Color.gray);
+        } else {
+            txtSLM.setBackground(Color.white);
+        }
+
+        if (txtNgay.getText().equals("")) {
+            sb.append("Ngày đặt hàng không được để trống \n");
+            txtNgay.setBackground(Color.gray);
+        } else {
+            txtNgay.setBackground(Color.white);
+        }
+
+        
+
+        if (sb.length() > 0) {
+            JOptionPane.showMessageDialog(this, sb.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int choice = JOptionPane.showConfirmDialog(this, "Bạn có muốn cập nhật thông tin không? ", "Xác Nhận", JOptionPane.YES_NO_OPTION);
+        if (choice == JOptionPane.NO_OPTION) {
+            return;
+        }
+
+        // neu chon khong thi tu doan nay se khong thuc hien
+        for (DonHang dh : listDH) {
+            if (dh.getMaSP().equals(txtMaSP.getText())) {
+                dh.setMaDH(txtMaDH.getText());
+                dh.setMaNV(txtMaNV.getText());
+                dh.setNgay(txtNgay.getText());
+                dh.setSoLuongMua(Integer.parseInt(txtSLM.getText()));
+               
+                // ghi phan tu sua doi vao file
+                try {
+                    // mo file database
+                    BufferedReader reader = new BufferedReader(new FileReader("CSDL\\DonHang.txt"));
+                    // tao 1 mang de luu cac doi tuong trong database
+                    ArrayList<String> lines = new ArrayList<>();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        lines.add(line);
+                    }
+                    // sua phan tu can thay doi
+                    for (int i = 0; i < lines.size(); i++) {
+                        String[] parts = lines.get(i).split(",");
+                        if (parts[0].equalsIgnoreCase(txtMaSP.getText())) {
+                            parts[1] = txtMaDH.getText();
+                            parts[2] = txtMaNV.getText();
+                            parts[3] = txtSLM.getText();
+                            parts[4] = txtNgay.getText();
+                            String newLine = String.join(",", parts);
+                            lines.set(i, newLine);
+                            break; // thoat sau khi sua
+                        }
+                    }
+                    // tao doi tuong de ghi lai vao database
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("CSDL\\DonHang.txt"));
+                    for (String newLine : lines) {
+                        writer.write(newLine);
+                        writer.newLine();
+                    }
+                    reader.close();
+                    writer.close();
+                } catch (IOException e) {
+                }
+
+                break;
+            }
+        }
+
+        fillTable();
+        btnClearActionPerformed(evt);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_timKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timKiemActionPerformed
+        // TODO add your handling code here:
+        if(txtMaDH.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Vui lòng nhập mã đơn hàng");
+        }else
+        {
+            //Xóa bảng
+            int rowCount = tblDH.getRowCount();
+            //Remove rows one by one from the end of the table
+            for (int i = rowCount - 1; i >= 0; i--) {
+                tblModel.removeRow(i);
+            }
+            for (DonHang dh:listDH)
+            {
+                if(txtMaDH.getText().equals(dh.getMaDH()))
+                {
+                    Object[] rowData = {dh.getMaDH()
+                            ,dh.getMaSP()
+                            ,dh.getMaNV()
+                            ,dh.getSoLuongMua()
+                            ,dh.getNgay()
+                            ,dh.getSoLuongMua()*tinhTienTheoMaSP(dh.getMaSP())};
+                    tblModel.addRow(rowData);
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_timKiemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,6 +728,9 @@ public class QLyDHForm extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnTTNV;
+    private javax.swing.JButton btn_timKiem;
+    private javax.swing.JButton btn_xuatFileExcel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

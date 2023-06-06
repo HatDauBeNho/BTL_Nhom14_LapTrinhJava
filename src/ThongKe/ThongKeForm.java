@@ -5,12 +5,14 @@
 package ThongKe;
 
 import DonHang.DonHang;
+import ExportExcel.ExportExcel;
 import MenuQuanLy.MenuForm;
 import NhaCungCap.NCC;
 import SanPham.SanPham;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
+import static ExportExcel.ExportExcel.exportExcel;
+import javax.swing.table.TableModel;
 /**
  *
  * @author Administrator
@@ -116,6 +118,7 @@ public class ThongKeForm extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTKe = new javax.swing.JTable();
+        btn_xuatFileExel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,6 +147,14 @@ public class ThongKeForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTKe);
 
+        btn_xuatFileExel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_xuatFileExel.setText("Xuất file exel");
+        btn_xuatFileExel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xuatFileExelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,6 +173,10 @@ public class ThongKeForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_xuatFileExel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +188,9 @@ public class ThongKeForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_xuatFileExel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -185,6 +202,11 @@ public class ThongKeForm extends javax.swing.JFrame {
         formMenu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btn_xuatFileExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xuatFileExelActionPerformed
+        // TODO add your handling code here:
+        ExportExcel.exportExcel(tblTKe);
+    }//GEN-LAST:event_btn_xuatFileExelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,9 +243,12 @@ public class ThongKeForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btn_xuatFileExel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tblTKe;
     // End of variables declaration//GEN-END:variables
+
+    
 }
